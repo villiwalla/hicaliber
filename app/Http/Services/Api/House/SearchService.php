@@ -2,7 +2,6 @@
 
 namespace App\Http\Services\Api\House;
 
-use App\House;
 use App\Http\Requests\Api\House\SearchRequest;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
@@ -56,7 +55,7 @@ class SearchService
     {
         $this->search($request, $query);
 
-        $query->orderBy($request->get('sort', 'id'), $request->get('direction', 'asc'));
+        $query->orderBy($request->get('sort', 'name'), $request->get('direction', 'asc'));
 
         return $query->paginate($perPage);
     }

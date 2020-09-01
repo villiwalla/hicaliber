@@ -3626,15 +3626,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   data: function data() {
     return {
       name: '',
-      bedroom: 1,
-      bathroom: 1,
-      storey: 1,
-      garage: 1,
+      bedroom: '',
+      bathroom: '',
+      storey: '',
+      garage: '',
       price: [],
       priceRange: [],
       tableData: [],
@@ -100934,7 +100936,7 @@ var render = function() {
                 [
                   _c(
                     "el-form-item",
-                    { attrs: { label: "Name", prop: "pass" } },
+                    { attrs: { label: "Name" } },
                     [
                       _c("el-input", {
                         attrs: {
@@ -100956,10 +100958,10 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-form-item",
-                    { attrs: { label: "Bedrooms", prop: "pass" } },
+                    { attrs: { label: "Bedrooms" } },
                     [
                       _c("el-input-number", {
-                        attrs: { min: 1 },
+                        attrs: { placeholder: "0" },
                         on: { change: _vm.searchParams },
                         model: {
                           value: _vm.bedroom,
@@ -100975,10 +100977,10 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-form-item",
-                    { attrs: { label: "Bathrooms", prop: "pass" } },
+                    { attrs: { label: "Bathrooms" } },
                     [
                       _c("el-input-number", {
-                        attrs: { min: 1 },
+                        attrs: { placeholder: "0" },
                         on: { change: _vm.searchParams },
                         model: {
                           value: _vm.bathroom,
@@ -100994,10 +100996,10 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-form-item",
-                    { attrs: { label: "Storeys", prop: "pass" } },
+                    { attrs: { label: "Storeys" } },
                     [
                       _c("el-input-number", {
-                        attrs: { min: 1 },
+                        attrs: { placeholder: "0" },
                         on: { change: _vm.searchParams },
                         model: {
                           value: _vm.storey,
@@ -101013,10 +101015,10 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-form-item",
-                    { attrs: { label: "Garage", prop: "pass" } },
+                    { attrs: { label: "Garage" } },
                     [
                       _c("el-input-number", {
-                        attrs: { min: 1 },
+                        attrs: { placeholder: "0" },
                         on: { change: _vm.searchParams },
                         model: {
                           value: _vm.garage,
@@ -101032,7 +101034,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "el-form-item",
-                    { attrs: { label: "Price", prop: "pass" } },
+                    { attrs: { label: "Price" } },
                     [
                       _c("el-slider", {
                         attrs: {
@@ -101082,12 +101084,18 @@ var render = function() {
                 "element-loading-spinner": "el-icon-loading",
                 "element-loading-background": "rgba(0, 0, 0, 0.8)",
                 "empty-text": "Results not found",
-                data: _vm.tableData
+                data: _vm.tableData,
+                "default-sort": { prop: "name", order: "descending" }
               }
             },
             [
               _c("el-table-column", {
-                attrs: { prop: "name", label: "Name", width: "180" }
+                attrs: {
+                  prop: "name",
+                  label: "Name",
+                  sortable: "",
+                  width: "180"
+                }
               }),
               _vm._v(" "),
               _c("el-table-column", {

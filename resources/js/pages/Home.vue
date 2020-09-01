@@ -3,26 +3,26 @@
         <el-container>
             <el-aside style="padding: 20px;">
                 <el-form status-icon label-position="top" label-width="120px" @submit="searchParams">
-                    <el-form-item label="Name" prop="pass">
+                    <el-form-item label="Name">
                         <el-input prefix-icon="el-icon-search"
                                   placeholder="Enter house name"
                                   v-model="name"
                                   @input="searchParams"
                         ></el-input>
                     </el-form-item>
-                    <el-form-item label="Bedrooms" prop="pass">
-                        <el-input-number v-model="bedroom" :min="1" @change="searchParams"></el-input-number>
+                    <el-form-item label="Bedrooms">
+                        <el-input-number v-model="bedroom" placeholder="0" @change="searchParams"></el-input-number>
                     </el-form-item>
-                    <el-form-item label="Bathrooms" prop="pass">
-                        <el-input-number v-model="bathroom" :min="1" @change="searchParams"></el-input-number>
+                    <el-form-item label="Bathrooms">
+                        <el-input-number v-model="bathroom" placeholder="0" @change="searchParams"></el-input-number>
                     </el-form-item>
-                    <el-form-item label="Storeys" prop="pass">
-                        <el-input-number v-model="storey" :min="1" @change="searchParams"></el-input-number>
+                    <el-form-item label="Storeys">
+                        <el-input-number v-model="storey" placeholder="0" @change="searchParams"></el-input-number>
                     </el-form-item>
-                    <el-form-item label="Garage" prop="pass">
-                        <el-input-number v-model="garage" :min="1" @change="searchParams"></el-input-number>
+                    <el-form-item label="Garage">
+                        <el-input-number v-model="garage" placeholder="0" @change="searchParams"></el-input-number>
                     </el-form-item>
-                    <el-form-item label="Price" prop="pass">
+                    <el-form-item label="Price">
                         <el-slider v-model="price" range :min="priceRange[0]" :max="priceRange[1]" @change="searchParams"></el-slider>
                     </el-form-item>
                 </el-form>
@@ -36,10 +36,12 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 empty-text="Results not found"
                 :data="tableData"
+                :default-sort = "{prop: 'name', order: 'descending'}"
                 style="width: 100%">
                 <el-table-column
                     prop="name"
                     label="Name"
+                    sortable
                     width="180">
                 </el-table-column>
                 <el-table-column
@@ -74,10 +76,10 @@ export default {
     data() {
         return {
             name: '',
-            bedroom: 1,
-            bathroom: 1,
-            storey: 1,
-            garage: 1,
+            bedroom: '',
+            bathroom: '',
+            storey: '',
+            garage: '',
             price: [],
             priceRange: [],
             tableData: [],
