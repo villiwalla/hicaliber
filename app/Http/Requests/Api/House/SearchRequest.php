@@ -31,6 +31,8 @@ class SearchRequest extends FormRequest
             'bathroom'  => 'nullable|integer',
             'storey'    => 'nullable|integer',
             'garage'    => 'nullable|integer',
+            'sort'      => 'nullable|string',
+            'direction' => 'nullable|string',
         ];
     }
 }
